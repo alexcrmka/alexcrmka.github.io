@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="uk">
+<html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex">
-  <title>Redirecting…</title>
+  <title>Weiterleitung…</title>
 
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L8S9B0WREJ"></script>
@@ -12,13 +12,13 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-L8S9B0WREJ'); // GA автоматично підхопить UTM з адреси
+    gtag('config', 'G-L8S9B0WREJ'); // GA erkennt automatisch die UTM-Parameter
 
-    // зберігаємо UTM у редіректі (не обов'язково для GA, але корисно)
+    // UTM-Parameter im Redirect behalten
     const qs = window.location.search || "";
-    const target = '/Survival-Guide.pdf' + qs; // змінй, якщо PDF не в корені
+    const target = '/Survival-Guide.pdf' + qs;
 
-    // фіксуємо подію кліку по PDF
+    // Ereignis für den PDF-Klick senden
     gtag('event', 'pdf_click', {
       pdf_name: 'Survival-Guide.pdf',
       source: 'email_supermailer',
@@ -26,14 +26,14 @@
       event_callback: function () { window.location.href = target; }
     });
 
-    // fallback, якщо callback не спрацює
+    // Fallback, falls Callback nicht ausgeführt wird
     setTimeout(function(){ window.location.href = target; }, 800);
   </script>
 
-  <!-- fallback без JS -->
+  <!-- Fallback ohne JS -->
   <noscript><meta http-equiv="refresh" content="0;url=/Survival-Guide.pdf"></noscript>
 </head>
 <body>
-  <p>Переадресація на PDF… Якщо не спрацювало, натисніть <a href="/Survival-Guide.pdf">тут</a>.</p>
+  <p>Weiterleitung zum PDF… Falls es nicht automatisch funktioniert, klicken Sie bitte <a href="/Survival-Guide.pdf">hier</a>.</p>
 </body>
 </html>
